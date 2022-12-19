@@ -1,14 +1,5 @@
 export const environment = {
   production: false,
-  // firebase: {
-  //   apiKey: 'xxx',
-  //   authDomain: 'bezkoder-firebase.firebaseapp.com',
-  //   databaseURL: 'https://bezkoder-firebase.firebaseio.com',
-  //   projectId: 'bezkoder-firebase',
-  //   storageBucket: 'bezkoder-firebase.appspot.com',
-  //   messagingSenderId: 'xxx',
-  //   appId: 'xxx'
-  // }
   firebase : {
     apiKey: "AIzaSyCL6b5BBku9dSAEK817heMg9wdCpG0-aZg",
     authDomain: "doqfy-inventory.firebaseapp.com",
