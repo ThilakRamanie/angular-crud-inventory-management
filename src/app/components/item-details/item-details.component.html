@@ -1,0 +1,81 @@
+<div *ngIf="currentItem" class="edit-form">
+  <h4>Inventory Details</h4>
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="currentItem.name"
+        name="title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="category">Product category</label>
+      <select name="category" id="category" class="form-control" required [(ngModel)]="currentItem.category">
+        <option value="Consumable">Consumable</option>
+        <option value="Non-consumable">Non-consumable</option>
+      </select>
+      <!-- <input
+        type="text"
+        class="form-control"
+        id="category"
+        required
+        [(ngModel)]="inventory.category"
+        name="category"
+      /> -->
+    </div>
+    <div class="form-group">
+      <label for="amount">Product cost</label>
+      <input
+        type="number"
+        class="form-control"
+        id="amount"
+        required
+        [(ngModel)]="currentItem.amount"
+        name="amount"
+      />
+    </div>
+    <div class="form-group">
+      <label for="image">Product image</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image"
+        required
+        [(ngModel)]="currentItem.imageURL"
+        name="image"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        [(ngModel)]="currentItem.description"
+        name="description"
+      />
+    </div>
+
+    <!-- <div class="form-group">
+      <label><strong>Status:</strong></label>
+      {{ currentTutorial.published ? "Published" : "Pending" }}
+    </div> -->
+  </form>
+
+  <button class="badge badge-danger mr-2" (click)="deleteItem()">
+    Delete
+  </button>
+
+  <button type="submit" class="badge badge-success" (click)="updateItem()">
+    Update
+  </button>
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentItem">
+  <br />
+  <p>Cannot access this Tutorial...</p>
+</div>

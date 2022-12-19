@@ -1,0 +1,68 @@
+<div class="submit-form needs-validation">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="name">Product name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="inventory.name"
+        name="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="category">Product category</label>
+      <select name="category" id="category" class="form-control" required [(ngModel)]="inventory.category">
+        <option value="Consumable">Consumable</option>
+        <option value="Non-consumable">Non-consumable</option>
+      </select>
+      <!-- <input
+        type="text"
+        class="form-control"
+        id="category"
+        required
+        [(ngModel)]="inventory.category"
+        name="category"
+      /> -->
+    </div>
+    <div class="form-group">
+      <label for="amount">Product cost</label>
+      <input
+        type="number"
+        class="form-control"
+        id="amount"
+        required
+        [(ngModel)]="inventory.amount"
+        name="amount"
+      />
+    </div>
+    <div class="form-group">
+      <label for="image">Product image</label>
+      <input
+        type="text"
+        class="form-control"
+        id="image"
+        required
+        [(ngModel)]="inventory.imageURL"
+        name="image"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description"> Product description</label>
+      <textarea class="form-control"
+      id="description"
+      required
+      [(ngModel)]="inventory.description"
+      name="description"></textarea>
+    </div>
+
+    <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newInventory()">Add</button>
+  </div>
+</div>

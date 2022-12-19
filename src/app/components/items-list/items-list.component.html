@@ -1,0 +1,42 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Inventory items list</h4>
+    <ul class="list-group" *ngFor="let inventory of inventories; let i = index">
+      <!-- <li
+        class="list-group-item"
+        [class.active]="i == currentIndex"
+        (click)="setActiveItem(inventory, i)"
+      >
+        {{ inventory.name }}
+      </li> -->
+      <!-- <img [src]="inventory.imageURL" /> -->
+      <div class="card d-flex align-items-center justify-content-center bg-dark text-white m-2 p-2" style="width: 18rem;" [class.active]="i == currentIndex"
+      (click)="setActiveItem(inventory, i)">
+        <img style="height: 150px;width: 150px;" class="card-img-top" [src]="inventory.imageURL" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{inventory.name}}</h5>
+          <p>Category: ({{inventory.category}})</p>
+          <p class="card-text">{{inventory.description}}</p>
+          <em class="card-text">Cost: &#8377;{{inventory.amount}}</em>
+        </div>
+      </div>
+    </ul>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllItems()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentInventory">
+      <app-item-details
+        (refreshList)="refreshList()"
+        [inventory]="currentInventory"
+      ></app-item-details>
+    </div>
+
+    <div *ngIf="!currentInventory">
+      <br />
+      <p>Please click on a item...</p>
+    </div>
+  </div>
+</div>
